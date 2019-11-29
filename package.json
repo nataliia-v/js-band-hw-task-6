@@ -18,9 +18,15 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "lint-staged": {
+    "*.{js,css,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged"
+      "pre-push": "npm eslint"
     }
   },
   "browserslist": {
@@ -47,6 +53,7 @@
     "husky": "^3.1.0",
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
+    "prettier-eslint-cli": "^5.0.0",
     "pretty-quick": "^2.0.1"
   }
 }
