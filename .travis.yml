@@ -1,14 +1,12 @@
 language: node_js
 node_js:
-  - 10.15.3
-cache: npm
-
-install:
-  - yarn install
-
+  - "stable"
+cache:
+  directories:
+    - node_modules
 script:
-  - yarn eslint
-  - yarn build
+  - npm eslint
+  - npm run build
 
 deploy:
   provider: pages

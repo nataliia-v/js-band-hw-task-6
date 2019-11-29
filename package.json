@@ -18,6 +18,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "homepage": "https://github.com/nataliia-v/js-band-hw-task-6",
   "lint-staged": {
     "*.{js,css,json,md}": [
       "prettier --write",
