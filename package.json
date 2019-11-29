@@ -26,7 +26,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm eslint"
+      "pre-commit": "yarn eslint"
     }
   },
   "browserslist": {
