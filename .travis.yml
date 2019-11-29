@@ -5,8 +5,8 @@ cache:
   directories:
     - node_modules
 script:
-  - npm eslint
-  - npm run build
+  - yarn eslint
+  - yarn run build
 
 deploy:
   provider: pages
