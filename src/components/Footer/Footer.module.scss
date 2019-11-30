@@ -1,0 +1,15 @@
+.footer {
+  padding: 20px 0 20px 20px;
+  display: flex;
+  justify-content: start;
+  border-top: 3px solid black;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.footerName {
+  font-weight: bold;
+  font-size: 30px;
+}
