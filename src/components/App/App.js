@@ -1,15 +1,32 @@
 import React from 'react';
-import styles from './App.module.scss';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import Todos from '../Todos/Todos';
 
-const internName = "Nataliia Varbenska";
+import styles from './App.module.scss';
+
+const internName = 'Nataliia Varbenska';
 
 function App() {
   return (
     <div className={styles.app}>
       <Header />
-      <Footer internName={internName}/>
+      <Router>
+        <div>
+          <Switch>
+            <Route exact path="/">
+              <Todos />
+            </Route>
+            <Route exact path="/todos">
+              <Todos />
+            </Route>
+            <Route path="*">Oops..not found</Route>
+          </Switch>
+        </div>
+      </Router>
+      <Footer internName={internName} />
     </div>
   );
 }
