@@ -11,23 +11,26 @@ const internName = 'Nataliia Varbenska';
 
 function App() {
   return (
-    <div className={styles.app}>
-      <Header />
-      <Router>
-        <div>
-          <Switch>
-            <Route exact path="/">
-              <Todos />
-            </Route>
-            <Route exact path="/todos">
-              <Todos />
-            </Route>
-            <Route path="*">Oops..not found</Route>
-          </Switch>
-        </div>
-      </Router>
-      <Footer internName={internName} />
-    </div>
+    <Router>
+      <div className={styles.app}>
+        <Header />
+        <Router>
+          <div>
+            <Switch>
+              <Route exact path="/">
+                <Todos />
+              </Route>
+              <Route exact path="/todos">
+                <Todos />
+              </Route>
+              <Route path="*">Oops..not found</Route>
+            </Switch>
+          </div>
+        </Router>
+        <Footer internName={internName} />
+      </div>
+    </Router>
+
   );
 }
 
