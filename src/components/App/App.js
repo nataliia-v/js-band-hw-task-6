@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -11,26 +11,21 @@ const internName = 'Nataliia Varbenska';
 
 function App() {
   return (
-    <Router>
-      <div className={styles.app}>
-        <Header />
-        <Router>
-          <div>
-            <Switch>
-              <Route exact path="/">
-                <Todos />
-              </Route>
-              <Route exact path="/todos">
-                <Todos />
-              </Route>
-              <Route path="*">Oops..not found</Route>
-            </Switch>
-          </div>
-        </Router>
-        <Footer internName={internName} />
-      </div>
-    </Router>
-
+    <div className={ styles.app }>
+      <Header/>
+      <BrowserRouter basename={ process.env.PUBLIC_URL }>
+        <div>
+          <Switch>
+            <Route path="/todos">
+              <Todos/>
+            </Route>
+            <Redirect from="/" to="/todos" exact />
+            <Route path="*">Oops..not found</Route>
+          </Switch>
+        </div>
+      </BrowserRouter>
+      <Footer internName={ internName }/>
+    </div>
   );
 }
 

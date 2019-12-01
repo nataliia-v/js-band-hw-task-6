@@ -1,0 +1,16 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: auto;
+}
+label {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+
+button {
+  border-radius: 10px;
+}
+
