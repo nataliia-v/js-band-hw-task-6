@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -13,17 +13,17 @@ function App() {
   return (
     <div className={ styles.app }>
       <Header/>
-      <HashRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <div>
           <Switch>
-            <Route path="/todos">
+            <Route path={`${process.env.PUBLIC_URL  }/todos`}>
               <Todos/>
             </Route>
             <Redirect from="/" to="/todos" exact />
-            <Route path="*">Oops..not found</Route>
+            <Route path={`${process.env.PUBLIC_URL  }*`}>Oops..not found</Route>
           </Switch>
         </div>
-      </HashRouter>
+      </BrowserRouter>
       <Footer internName={ internName }/>
     </div>
   );
