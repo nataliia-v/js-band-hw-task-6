@@ -12,7 +12,6 @@ export class TodoItem extends Component {
     return (
       <div className="todoItem">
         <div className="iconDoneWrap"><i className="fa fa-check-square-o iconDone" /></div>
-
         <p className="title">Title</p>
         <p className="description">Description</p>
         <div className='container'>
