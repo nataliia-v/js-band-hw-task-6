@@ -1,6 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
+import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -11,13 +10,11 @@ import styles from './App.module.scss';
 const internName = 'Nataliia Varbenska';
 
 function App() {
-  const history = createBrowserHistory({
-    basename: process.env.PUBLIC_URL,
-  });
+
   return (
     <div className={ styles.app }>
       <Header/>
-      <BrowserRouter history={history} basename={process.env.PUBLIC_URL}>
+      <HashRouter>
         <div>
           <Switch>
             <Route path='/todos' component={Todos}/>
@@ -25,7 +22,7 @@ function App() {
             <Route path='*'>Oops..not found</Route>
           </Switch>
         </div>
-      </BrowserRouter>
+      </HashRouter>
       <Footer internName={ internName }/>
     </div>
   );
