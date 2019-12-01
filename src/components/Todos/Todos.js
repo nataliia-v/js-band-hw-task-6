@@ -1,9 +1,10 @@
 import React from 'react';
+import { Form } from '../Form/Form';
 
 function Todos() {
   return (
     <div>
-      TODOS
+      <Form/>
     </div>
   );
 }
