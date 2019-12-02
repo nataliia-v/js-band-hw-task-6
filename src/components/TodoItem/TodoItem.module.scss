@@ -6,6 +6,16 @@
   border: 2px solid black;
   text-align: start;
   position: relative;
+  background: white;
+  margin-bottom: 20px;
+
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+}
+
+.todoItemDone {
+  background: lightgrey;
 }
 
 .title {
@@ -40,5 +50,6 @@
   border: 2px black solid;
   border-radius: 8px;
   padding: 5px 20px;
+  background: transparent;
 }
 
