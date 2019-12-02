@@ -11,15 +11,7 @@ class Todos extends Component {
   static contextType = ModalContext;
 
   state = {
-    allTodoItems: [
-      { id: 1231231, done: false, priority: 'low', title: 'test1', description: 'descr1' },
-      { id: 1231232, done: true, priority: 'low', title: 'test2', description: 'descr2' },
-      { id: 1231233, done: false, priority: 'normal', title: 'test3', description: 'descr3' },
-      { id: 1231234, done: false, priority: 'normal', title: 'test4', description: 'descr4' },
-      { id: 1231235, done: true, priority: 'low', title: 'test5', description: 'descr5' },
-      { id: 1231236, done: false, priority: 'high', title: 'test6', description: 'descr6' },
-      { id: 1231237, done: true, priority: 'low', title: 'test7', description: 'descr7' }
-    ],
+    allTodoItems: [],
     filteredTodoItems: [],
     filters: {
       search: '',
@@ -35,7 +27,10 @@ class Todos extends Component {
   componentDidUpdate(prevProps, prevState) {
     const { allTodoItems, filters } = this.state;
 
-    if (prevState.allTodoItems !== allTodoItems || prevState.filters !== filters) {
+    if (
+      prevState.allTodoItems !== allTodoItems ||
+      prevState.filters !== filters
+    ) {
       this.recalculate();
     }
   }
@@ -44,7 +39,7 @@ class Todos extends Component {
     const { filters } = this.state;
 
     const filtersToApply = Object.keys(filters).filter(
-      filterKey => filters[filterKey],
+      filterKey => filters[filterKey]
     );
 
     this.setState(({ allTodoItems }) => ({
@@ -69,26 +64,27 @@ class Todos extends Component {
 
           return null;
         });
-
       })
     }));
   };
 
-  onFiltersChange = (filters) => {
+  onFiltersChange = filters => {
     this.setState({
       filters
     });
   };
 
   onAddTodoItem = todoItem => {
-    this.setState(({ allTodoItems }) => ({ allTodoItems: [...allTodoItems, todoItem] }));
+    this.setState(({ allTodoItems }) => ({
+      allTodoItems: [...allTodoItems, todoItem]
+    }));
   };
 
-  onDone = (todoId) => {
+  onDone = todoId => {
     this.setState(({ allTodoItems }) => ({
       allTodoItems: allTodoItems.map(todoItem => ({
         ...todoItem,
-        done: todoItem.id === todoId || todoItem.done,
+        done: todoItem.id === todoId || todoItem.done
       }))
     }));
   };
@@ -105,7 +101,7 @@ class Todos extends Component {
     closeModal();
   };
 
-  onEdit = (todoId) => {
+  onEdit = todoId => {
     const { allTodoItems } = this.state;
     const { openModal, closeModal } = this.context;
 
@@ -121,7 +117,7 @@ class Todos extends Component {
     });
   };
 
-  onDelete = (todoId) => {
+  onDelete = todoId => {
     this.setState(({ allTodoItems }) => ({
       allTodoItems: allTodoItems.filter(todoItem => todoItem.id !== todoId)
     }));
@@ -132,12 +128,16 @@ class Todos extends Component {
 
     return (
       <div>
-        <Filters filtersInitialValues={filters} onAddTodoItem={ this.onAddTodoItem } onFiltersChange={this.onFiltersChange} />
+        <Filters
+          filtersInitialValues={filters}
+          onAddTodoItem={this.onAddTodoItem}
+          onFiltersChange={this.onFiltersChange}
+        />
         <TodoList
-          todoItems={ filteredTodoItems }
-          onDone={ this.onDone }
-          onEdit={ this.onEdit }
-          onDelete={ this.onDelete }
+          todoItems={filteredTodoItems}
+          onDone={this.onDone}
+          onEdit={this.onEdit}
+          onDelete={this.onDelete}
         />
       </div>
     );
