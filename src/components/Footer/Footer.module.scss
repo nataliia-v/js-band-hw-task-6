@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .footer {
   padding: 20px 0 20px 20px;
   display: flex;
@@ -7,6 +9,7 @@
   left: 0;
   bottom: 0;
   width: 100%;
+  height: $footerHeight;
 }
 
 .footerName {
