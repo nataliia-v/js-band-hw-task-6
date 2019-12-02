@@ -19,14 +19,6 @@ class Filters extends Component {
     }
   };
 
-  // state = {
-  //   filters: {
-  //     search: this.props.filtersInitialValues.search,
-  //     status: this.props.filtersInitialValues.status,
-  //     priority: this.props.filtersInitialValues.priority
-  //   }
-  // };
-
   state = (() => {
     const { filtersInitialValues } = this.props;
 
